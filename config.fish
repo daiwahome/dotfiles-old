@@ -8,6 +8,7 @@ umask 022
 alias ls="ls -hF --color=auto"
 alias la="ls -A"
 alias ll="ls -l"
+alias open=wsl-open
 
 # pyenv
 set -x PYENV_ROOT $HOME/.pyenv
