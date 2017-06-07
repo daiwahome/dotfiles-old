@@ -15,6 +15,9 @@ set -x PYENV_ROOT $HOME/.pyenv
 set -x PATH $PATH $PYENV_ROOT/bin
 . (pyenv init - | psub)
 
+# python
+set -x VIRTUAL_ENV_DISABLE_PROMPT 1
+
 # go
 set -x GOPATH $HOME/go
 set -x PATH $PATH $GOPATH/bin
