@@ -17,6 +17,7 @@ set -x PATH $PATH $PYENV_ROOT/bin
 
 # python
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
+set -x WORKON_HOME "$HOME/.virtualenvs"
 
 # go
 set -x GOPATH $HOME/go

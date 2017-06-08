@@ -26,7 +26,8 @@ set fileformats=unix,dos,mac
 "
 " Python
 "
-let g:python3_host_prog = expand('~/.virtualenvs/nvim/bin/python')
+let s:python_bin_dir = $WORKON_HOME . '/nvim/bin'
+let g:python3_host_prog = expand(s:python_bin_dir . '/python')
 
 "
 " Plugins (vim-plug)
@@ -53,7 +54,35 @@ let g:lightline = {
 "
 " neomake
 "
-let g:neomake_python_enabled_makers = ['pylint', 'mypy']
+autocmd! BufWritePost * Neomake
+let g:neomake_open_list = 2
+let g:neomake_python_enabled_makers = ['python', 'pylint', 'mypy']
+let g:neomake_python_pylint_maker = {
+  \ 'exe': expand(s:python_bin_dir . '/pylint'),
+  \ 'args': [
+      \ '--output-format=text',
+      \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"',
+      \ '--reports=no'
+  \ ],
+  \ 'errorformat':
+      \ '%A%f:%l:%c:%t: %m,' .
+      \ '%A%f:%l: %m,' .
+      \ '%A%f:(%l): %m,' .
+      \ '%-Z%p^%.%#,' .
+      \ '%-G%.%#',
+  \ 'postprocess': [
+      \ function('neomake#postprocess#GenericLengthPostprocess'),
+      \ function('neomake#makers#ft#python#PylintEntryProcess'),
+  \ ]
+  \ }
+let g:neomake_python_mypy_maker = {
+  \ 'exe': expand(s:python_bin_dir . '/mypy'),
+  \ 'args': ['--ignore-missing-imports', '--follow-imports=skip'],
+  \ 'errorformat':
+      \ '%E%f:%l: error: %m,' .
+      \ '%W%f:%l: warning: %m,' .
+      \ '%I%f:%l: note: %m',
+  \ }
 
 "
 " deoplete
