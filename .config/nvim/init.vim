@@ -59,6 +59,8 @@ let g:neomake_python_enabled_makers = ['pylint', 'mypy']
 " deoplete
 "
 let g:deoplete#enable_at_startup = 1
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 
 "
 " deoplete-jedi
