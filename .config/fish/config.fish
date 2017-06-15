@@ -31,5 +31,6 @@ set -x PATH $PATH "$GOPATH/bin"
 # WSL
 if is_wsl
     set -x DISPLAY :0.0
+    set -x BROWSER chrome.exe
     alias open=wsl-open
 end
