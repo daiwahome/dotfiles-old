@@ -12,20 +12,21 @@ umask 022
 # Alias
 alias ls="ls -hF --color=auto"
 alias la="ls -A"
-alias ll="ls -l"
+alias ll="ls -lA"
 
-# pyenv
-set -x PYENV_ROOT $HOME/.pyenv
-set -x PATH $PATH $PYENV_ROOT/bin
+# Python
+## pyenv
+set -x PYENV_ROOT "$HOME/.pyenv"
+set -x PATH $PATH "$PYENV_ROOT/bin"
 . (pyenv init - | psub)
 
-# python
+## venv
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x WORKON_HOME "$HOME/.virtualenvs"
 
-# go
-set -x GOPATH $HOME/go
-set -x PATH $PATH $GOPATH/bin
+# Golang
+set -x GOPATH "$HOME/go"
+set -x PATH $PATH "$GOPATH/bin"
 
 # WSL
 if is_wsl
