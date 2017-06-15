@@ -1,5 +1,10 @@
-# WSL
-set -x DISPLAY :0.0
+# Functions
+function is_wsl
+    set -l exp 'Microsoft'
+    grep -q $exp /proc/version; or grep -q $exp /proc/sys/kernel/osrelease
+end
+
+# Common
 set -x EDITOR vim
 set -x TERM xterm-256color
 umask 022
@@ -8,7 +13,6 @@ umask 022
 alias ls="ls -hF --color=auto"
 alias la="ls -A"
 alias ll="ls -l"
-alias open=wsl-open
 
 # pyenv
 set -x PYENV_ROOT $HOME/.pyenv
@@ -22,3 +26,9 @@ set -x WORKON_HOME "$HOME/.virtualenvs"
 # go
 set -x GOPATH $HOME/go
 set -x PATH $PATH $GOPATH/bin
+
+# WSL
+if is_wsl
+    set -x DISPLAY :0.0
+    alias open=wsl-open
+end
