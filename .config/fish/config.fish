@@ -5,28 +5,55 @@ function is_wsl
 end
 
 # Common
+## XDG Base Directory Specification
+set -x XDG_CACHE_HOME "$HOME/.cache"
+set -x XDG_CONFIG_HOME "$HOME/.config"
+set -x XDG_DATA_HOME "$HOME/.local/share"
+#set -x XDG_RUNTIME_DIR "/run/user/$USER"
+## misc.
 set -x EDITOR vim
 set -x TERM xterm-256color
 umask 022
 
-# Alias
+# Commands
+## bash
+set -x HISTFILE "$XDG_DATA_HOME/bash/bash_history"
+## ls
 alias ls="ls -hF --color=auto"
 alias la="ls -A"
 alias ll="ls -lA"
+## less
+#set -x LESSKEY "$XDG_CONFIG_HOME/less/lesskey"
+set -x LESSHISFILE "$XDG_CACHE_HOME/less/lesshst"
+# tig
+set -x TIGRC_USER "$XDG_CONFIG_HOME/tig/tigrc"
+## tmux
+alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
+#set -x TMUX_TMPDIR="$XDG_RUNTIME_DIR"
+## wget
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget/wget-hsts"'
+#set -x WGETRC "$XDG_CONFIG_HOME/wget/wgetrc"
 
 # Python
 ## pyenv
-set -x PYENV_ROOT "$HOME/.pyenv"
+set -x PYENV_ROOT "$XDG_DATA_HOME/pyenv"
 set -x PATH $PATH "$PYENV_ROOT/bin"
 . (pyenv init - | psub)
-
 ## venv
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x WORKON_HOME "$HOME/.virtualenvs"
+## jupyter
+set -x IPYTHONDIR "$XDG_CONFIG_HOME/ipython"
+set -x JUPYTER_CONFIG_DIR "$XDG_CONFIG_HOME/jupyter"
+## pylint
+set -x PYLINTHOME "$XDG_CACHE_HOME/pylint"
 
 # Golang
-set -x GOPATH "$HOME/go"
+## go
+set -x GOPATH "$XDG_DATA_HOME/go"
 set -x PATH $PATH "$GOPATH/bin"
+## ghq
+set -x GHQ_ROOT "$XDG_DATA_HOME/ghq"
 
 # WSL
 if is_wsl

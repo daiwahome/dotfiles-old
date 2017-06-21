@@ -30,3 +30,10 @@ set statusline+=%{&fileformat}\ \|\ %{&fileencoding}\ \|\ %3p%%\ \|\ %3c:%3l
 
 " colorscheme
 syntax enable
+
+" XDG
+set undodir=$XDG_CACHE_HOME/vim/undo
+set directory=$XDG_CACHE_HOME/vim/swap
+set backupdir=$XDG_CACHE_HOME/vim/backup
+set viminfo='20,n$XDG_CACHE_HOME/vim/viminfo
+set runtimepath=$XDG_CONFIG_HOME/vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$XDG_CONFIG_HOME/vim/after
