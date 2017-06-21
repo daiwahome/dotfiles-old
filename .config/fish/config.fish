@@ -35,10 +35,8 @@ alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget/wget-hsts"'
 #set -x WGETRC "$XDG_CONFIG_HOME/wget/wgetrc"
 
 # Python
-## pyenv
-set -x PYENV_ROOT "$XDG_DATA_HOME/pyenv"
-set -x PATH $PATH "$PYENV_ROOT/bin"
-. (pyenv init - | psub)
+## python
+set -x PYTHONSTARTUP "$XDG_CONFIG_HOME/python/pythonstartup"
 ## venv
 set -x VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x WORKON_HOME "$HOME/.virtualenvs"
@@ -47,6 +45,10 @@ set -x IPYTHONDIR "$XDG_CONFIG_HOME/ipython"
 set -x JUPYTER_CONFIG_DIR "$XDG_CONFIG_HOME/jupyter"
 ## pylint
 set -x PYLINTHOME "$XDG_CACHE_HOME/pylint"
+## pyenv
+set -x PYENV_ROOT "$XDG_DATA_HOME/pyenv"
+set -x PATH $PATH "$PYENV_ROOT/bin"
+. (pyenv init - | psub)
 
 # Golang
 ## go
