@@ -1,0 +1,17 @@
+# View
+set main-view = id date author commit-title:graph=yes,refs=yes
+
+# Key bind
+## disable
+bind generic - none
+bind generic <Space> none
+bind generic <Ctrl-D> none
+bind generic <Ctrl-U> none
+## vim like
+bind generic g move-first-line
+bind generic G move-last-line
+bind main G move-last-line
+bind generic <Ctrl-F> move-page-down
+bind generic <Ctrl-B> move-page-up
+## replace
+bind generic <Ctrl-G> view-grep
