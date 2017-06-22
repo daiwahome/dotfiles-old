@@ -12,8 +12,10 @@ set -x XDG_DATA_HOME "$HOME/.local/share"
 #set -x XDG_RUNTIME_DIR "/run/user/$USER"
 ## misc.
 set -x EDITOR vim
-set -x TERM xterm-256color
 umask 022
+if test -z "$TMUX"
+    set -x TERM xterm-256color
+end
 
 # Commands
 ## bash

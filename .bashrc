@@ -6,8 +6,10 @@ function is_wsl() {
 
 # Common
 export EDITOR=vim
-export TERM=xterm-256color
 umask 022
+if [[ $- == *i* && -z "$TMUX" ]]; then
+    export TERM=xterm-256color
+fi
 
 # Commands
 ## ls
