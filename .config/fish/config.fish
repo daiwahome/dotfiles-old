@@ -28,6 +28,7 @@ alias ll="ls -lA"
 #set -x LESSKEY "$XDG_CONFIG_HOME/less/lesskey"
 set -x LESSHISFILE "$XDG_CACHE_HOME/less/lesshst"
 # tig
+alias tig='tig --all'
 set -x TIGRC_USER "$XDG_CONFIG_HOME/tig/tigrc"
 ## tmux
 alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
