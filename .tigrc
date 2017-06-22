@@ -1,17 +1,83 @@
+# Option
+set     refresh-mode        = periodic
+set     refresh-interval    = 1
+set     line-graphics       = ascii
+
 # View
-set main-view = id date author commit-title:graph=yes,refs=yes
+set     main-view           = id date author commit-title:graph=yes,refs=yes
+
+# Color
+color   default     color252    color233
+color   cursor      color166    color234
+color   status      default     default
+color   title-focus color166    default
+color   title-blur  default     default
+color   main-head   color161    default
 
 # Key bind
 ## disable
-bind generic - none
-bind generic <Space> none
-bind generic <Ctrl-D> none
-bind generic <Ctrl-U> none
+bind    generic g               none
+bind    generic A               none
+bind    generic F               none
+bind    generic J               none
+bind    generic K               none
+bind    generic S               none
+bind    generic X               none
+bind    generic -               none
+bind    generic $               none
+bind    generic <Space>         none
+bind    generic <Insert>        none
+bind    generic <Delete>        none
+bind    generic <Home>          none
+bind    generic <End>           none
+bind    generic <ScrollBack>    none
+bind    generic <ScrollFwd>     none
+bind    generic <F5>            none
+bind    main    C               none
+bind    main    G               none
+bind    main    F               none
+bind    refs    C               none
+bind    refs    !               none
+bind    stash   A               none
+bind    stash   P               none
+bind    stash   !               none
+bind    status  C               none
 ## vim like
-bind generic g move-first-line
-bind generic G move-last-line
-bind main G move-last-line
-bind generic <Ctrl-F> move-page-down
-bind generic <Ctrl-B> move-page-up
+bind    generic <C-W><C-W>      view-next
+bind    generic <C-R>           refresh
+bind    generic gg              move-first-line
+bind    generic G               move-last-line
+bind    generic <C-F>           scroll-page-down
+bind    generic <C-B>           scroll-page-up
+bind    generic <PageDown>      scroll-page-down
+bind    generic <PageUp>        scroll-page-up
+bind    generic 0               scroll-first-col
+bind    generic ^               scroll-first-col
 ## replace
 bind generic <Ctrl-G> view-grep
+## git
+bind    main    B               @git checkout -b "%(prompt New branch name: )" %(commit)
+bind    main    C               ?git cherry-pick %(commit)
+bind    main    F               ?git fetch -p %(remote)
+bind    main    MG              ?git merge %(branch)
+bind    main    MN              ?git merge --no-ff %(branch)
+bind    main    PH              ?git push %(remote) %(repo:head)
+bind    main    PT              ?git push %(remote) --tags
+bind    main    RI              ?git rebase -i %(commit)
+bind    main    RH              ?@git reset --hard %(commit)
+bind    main    RM              ?@git reset --mixed %(commit)
+bind    main    RS              ?@git reset --soft %(commit)
+bind    main    T               @git tag "%(prompt New tag name: )" %(commit)
+bind    main    !               ?git revert %(commit)
+bind    refs    B               @git checkout -b "%(prompt New branch name: )" %(branch)
+bind    refs    C               @git checkout %(branch)
+bind    refs    !               ?@git branch -D %(branch)
+bind    stash   A               ?@git stash apply %(stash)
+bind    stash   P               ?@git stash pop %(stash)
+bind    stash   !               ?@git stash drop %(stash)
+bind    status  CA              !git commit --amend
+bind    status  CC              !git commit
+bind    status  CE              !git commit --allow-empty
+bind    status  S               @git stash save "%(prompt Enter stash comment: )"
+bind    status  X               ?@git clean -dfx
+bind    tree    !               ?@git rm %(file)
