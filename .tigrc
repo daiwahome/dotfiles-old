@@ -21,6 +21,7 @@ bind    generic A               none
 bind    generic F               none
 bind    generic J               none
 bind    generic K               none
+bind    generic R               none
 bind    generic S               none
 bind    generic X               none
 bind    generic -               none
