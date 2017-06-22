@@ -85,6 +85,12 @@ let g:neomake_python_mypy_maker = {
   \ }
 
 "
+" NERDTree
+"
+let g:NERDTreeShowHidden = 1
+map <C-n> :NERDTreeToggle<CR>
+
+"
 " deoplete
 "
 let g:deoplete#enable_at_startup = 1
