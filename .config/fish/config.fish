@@ -30,9 +30,6 @@ set -x LESSHISFILE "$XDG_CACHE_HOME/less/lesshst"
 # tig
 alias tig='tig --all'
 set -x TIGRC_USER "$XDG_CONFIG_HOME/tig/tigrc"
-## tmux
-alias tmux='tmux -f "$XDG_CONFIG_HOME/tmux/tmux.conf"'
-#set -x TMUX_TMPDIR="$XDG_RUNTIME_DIR"
 ## wget
 alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget/wget-hsts"'
 #set -x WGETRC "$XDG_CONFIG_HOME/wget/wgetrc"
