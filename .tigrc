@@ -72,6 +72,7 @@ bind    main    T               @git tag "%(prompt New tag name: )" %(commit)
 bind    main    !               ?git revert %(commit)
 bind    refs    B               @git checkout -b "%(prompt New branch name: )" %(branch)
 bind    refs    C               @git checkout %(branch)
+bind    refs    R               @git branch -m %(branch) "%(prompt Rename branch: )"
 bind    refs    !               ?@git branch -D %(branch)
 bind    stash   A               ?@git stash apply %(stash)
 bind    stash   P               ?@git stash pop %(stash)
