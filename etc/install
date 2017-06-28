@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -eu
+
+dotfiles_url='https://github.com/daiwahome/dotfiles'
+default_dotpath="$HOME/.dotfiles"
+
+function install_download() {
+    echo -e "\033[33mStart downloads...\033[0;39m"
+    git clone $dotfiles_url $DOTPATH
+    echo -e "\033[33mfinish.\033[0;39m"
+}
+
+function install_deploy() {
+    cd $DOTPATH
+
+    echo -e "\033[33mStart deployments...\033[0;39m"
+    make deploy
+    echo -e "\033[33mfinish.\033[0;39m"
+}
+
+function install_initialize() {
+    cd $DOTPATH
+
+    echo -e "\033[33mStart initializations...\033[0;39m"
+    make initialize
+    echo -e "\033[33mfinish.\033[0;39m"
+}
+
+if [ ! -z DOTPATH ]; then
+    DOTPATH="$default_dotpath"
+fi
+
+install_download
+echo
+install_deploy
+echo
+install_initialize
+
