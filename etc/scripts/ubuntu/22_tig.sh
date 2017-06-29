@@ -12,12 +12,9 @@ function install_tig() {
     ghq get $tig_ghq_url
 
     cd $tig_ghq_path
-    sudo apt-get -qq install -y xmlto
-    sudo make prefix=$tig_prefix
+    make configure
+    make prefix=$tig_prefix
     sudo make install prefix=$tig_prefix
-
-    sudo apt-get -qq install -y asciidoc
-    sudo make install-doc prefix=$tig_prefix
 
     sudo git clean -dfx
 }
