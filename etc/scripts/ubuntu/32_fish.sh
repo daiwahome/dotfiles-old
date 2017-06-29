@@ -5,7 +5,6 @@ cd $(dirname $0)
 source ../common.sh
 
 fish_path="$XDG_CONFIG_HOME/fish"
-fish_install_path='/usr/local/bin/fish'
 
 fisherman_url='https://git.io/fisher'
 fisherman_path="$fish_path/functions/fisher.fish"
@@ -19,8 +18,6 @@ function install_fish() {
 
 function setup_fish() {
     mkdir_with_check $fish_path
-
-    sudo chsh -s $fish_install_path
 }
 
 function install_fisherman() {
