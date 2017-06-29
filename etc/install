@@ -14,7 +14,7 @@ function install_deploy() {
     cd $DOTPATH
 
     echo -e "\033[33mStart deployments...\033[0;39m"
-    make deploy
+    DOTPATH=$DOTPATH bash ./etc/scripts/deploy.sh
     echo -e "\033[33mfinish.\033[0;39m"
 }
 
@@ -22,7 +22,7 @@ function install_initialize() {
     cd $DOTPATH
 
     echo -e "\033[33mStart initializations...\033[0;39m"
-    make initialize
+    DOTPATH=$DOTPATH bash ./etc/scripts/initialize.sh
     echo -e "\033[33mfinish.\033[0;39m"
 }
 
@@ -30,9 +30,7 @@ if [ ! -z DOTPATH ]; then
     DOTPATH="$default_dotpath"
 fi
 
-install_download
-echo
-install_deploy
-echo
+install_download; echo
+install_deploy; echo
 install_initialize
 
