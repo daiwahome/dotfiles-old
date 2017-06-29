@@ -14,7 +14,7 @@ function install_init() {
     sudo apt-get -qq install -y apt-utils dialog
 
     # Building
-    sudo apt-get -qq install -y build-essential pkg-config automake
+    sudo apt-get -qq install -y build-essential pkg-config make automake
 
     # Misc.
     sudo apt-get -qq install -y curl
