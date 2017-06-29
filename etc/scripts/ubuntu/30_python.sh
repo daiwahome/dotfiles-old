@@ -20,7 +20,7 @@ function setup_python() {
 
 function install_pyenv() {
     ghq get $pyenv_ghq_url
-    ln -fsv $pyenv_ghq_path $pyenv_dir
+    ln -fsv "$pyenv_ghq_path/" $pyenv_dir
 }
 
 function setup_pyenv() {
