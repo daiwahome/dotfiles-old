@@ -9,10 +9,7 @@ tmux_ghq_path="$GHQ_ROOT/github.com/$tmux_ghq_url"
 
 tpm_ghq_url='tmux-plugins/tpm'
 tpm_ghq_path="$GHQ_ROOT/github.com/$tpm_ghq_url"
-tpm_ghq_dir="$(trim_childpath $tpm_ghq_path tpm)"
-
 tpm_dir="$XDG_CONFIG_HOME/tmux/plugins"
-tpm_path="$tpm_dir/tpm"
 
 function install_tmux() {
     ghq get $tmux_ghq_url
@@ -32,7 +29,7 @@ function install_tpm() {
     ghq get $tpm_ghq_url
 
     mkdir_with_check $tpm_dir
-    ln -fsv $tpm_ghq_path $tpm_path
+    ln -fsv "$tpm_ghq_path/" $tpm_dir
 }
 
 log $0 install_tmux
