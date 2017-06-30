@@ -4,6 +4,10 @@ set -eu
 dotfiles_url='https://github.com/daiwahome/dotfiles'
 default_dotpath="$HOME/.dotfiles"
 
+function install_init() {
+    umask 022
+}
+
 function install_download() {
     echo -e "\033[33mStart downloads...\033[0;39m"
     git clone $dotfiles_url $DOTPATH
@@ -30,6 +34,7 @@ if [ ! -z DOTPATH ]; then
     DOTPATH="$default_dotpath"
 fi
 
+install_init
 install_download; echo
 install_deploy; echo
 install_initialize

@@ -23,7 +23,13 @@ function export_env() {
     export WORKON_HOME="$HOME/.virtualenvs"
 }
 
+# Change the permissions when creating directories
+function set_permission() {
+    umask 022
+}
+
 export_env
+set_permission
 
 # Constant
 os_list=(ubuntu)
