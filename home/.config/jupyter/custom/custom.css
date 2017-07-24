@@ -1,0 +1,28 @@
+/* font in cells */
+.CodeMirror,    /* input cell */
+.output,        /* output table */
+.output pre {   /* output cell */
+    font-family: inconsolata, Consolas, Courier New;
+}
+
+/* centering graphs */
+.output_png img,
+.output_result img {
+    display: block;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    width: 80%;
+    height: auto !important;
+}
+
+/* centering tables */
+.output table.dataframe {
+    font-weight: bold;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.output table.dataframe thead th,
+.output table.dataframe tbody td {
+    text-align: left !important;
+}
