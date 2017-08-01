@@ -23,6 +23,9 @@ set fileencodings=utf-8
 set fileformat=unix
 set fileformats=unix,dos,mac
 
+" mouse
+set mouse-=a
+
 "
 " Python
 "
