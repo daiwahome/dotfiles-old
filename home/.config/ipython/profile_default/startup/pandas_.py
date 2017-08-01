@@ -31,11 +31,11 @@ try:
                 r'\begin{table}[H]',
                 r'  \centering',
                 fr'  \caption{{{self.title}}}\label{{tab:{self.label}}}',
-                r'  \begin{ttfamily}',
-                r'    \begin{bfseries}{'
+                r'  \begin{adjustbox}{max width=\textwidth}',
+                r'    \begin{ttfamily}\begin{bfseries}{'
                 f'{escape_hyphen(self.df.to_latex())}'
-                r'}\end{bfseries}',
-                r'  \end{ttfamily}',
+                r'}\end{bfseries}\end{ttfamily}',
+                r'  \end{adjustbox}',
                 r'\end{table}',
             ))
 
