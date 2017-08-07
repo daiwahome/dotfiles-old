@@ -8,7 +8,21 @@ try:
     pd.options.display.max_colwidth = 100
 
     class Table:
-        """Table class for depicting HTML and LaTeX"""
+        """Table class for depicting HTML and LaTeX.
+
+        :param df:
+            A DataFrame
+        :type df:
+            pandas.DataFrame
+        :param title:
+            The caption of the DataFrame
+        :param title:
+            str
+        :param label:
+            The label of the DataFrame
+        :param label:
+            str
+        """
         def __init__(self, df: pd.DataFrame, title: str, label: str) -> None:
             self.df: pd.DataFrame = df
             self.title: str = title
@@ -38,23 +52,5 @@ try:
                 r'  \end{adjustbox}',
                 r'\end{table}',
             ))
-
-
-    def display_table(df: pd.DataFrame, title: str, label: str) -> Table:
-        """Display a table with pandas.DataFrame.
-        :param df:
-            A DataFrame
-        :type df:
-            pandas.DataFrame
-        :param title:
-            The caption of the DataFrame
-        :param title:
-            str
-        :param label:
-            The label of the DataFrame
-        :param label:
-            str
-        """
-        return Table(df, title, label)
 except ImportError:
     pass
