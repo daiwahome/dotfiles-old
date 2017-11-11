@@ -57,6 +57,9 @@ set -x PATH $PATH "$GOPATH/bin"
 ## ghq
 set -x GHQ_ROOT "$XDG_DATA_HOME/ghq"
 
+# Rust
+set -x PATH $PATH "$HOME/.cargo/bin"
+
 # WSL
 if is_wsl
     set -x DISPLAY :0.0

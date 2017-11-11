@@ -38,9 +38,11 @@ let g:python3_host_prog = expand(s:python_bin_dir . '/python')
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'itchyny/lightline.vim'
 Plug 'neomake/neomake'
-Plug 'tomasr/molokai'
+Plug 'rust-lang/rust.vim'
+Plug 'sebastianmarkow/deoplete-rust'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tomasr/molokai'
 Plug 'zchee/deoplete-jedi'
 call plug#end()
 
@@ -104,6 +106,12 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " deoplete-jedi
 "
 set completeopt-=preview
+
+"
+" deoplete-rust
+"
+let g:deoplete#sources#rust#racer_binary=expand('~/.cargo/bin/racer')
+let g:deoplete#sources#rust#rust_source_path=expand('~/.local/share/ghq/github.com/rust-lang/rust/src')
 
 "
 " colorscheme
