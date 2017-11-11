@@ -65,4 +65,9 @@ if is_wsl
     set -x DISPLAY :0.0
     set -x BROWSER chrome.exe
     alias open=wsl-open
+
+    # Run tmux
+    if test -z "$TMUX"
+        exec tmux
+    end
 end
