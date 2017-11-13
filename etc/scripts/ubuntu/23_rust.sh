@@ -7,7 +7,7 @@ source ../common.sh
 rust_url='https://sh.rustup.rs'
 
 function install_rust() {
-    curl $rust_url -sSf | sh -s -- --no-modify-path
+    curl $rust_url -sSf | sh -s -- -y
 }
 
 function setup_rust() {
