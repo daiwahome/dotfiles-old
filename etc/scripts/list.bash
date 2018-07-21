@@ -2,7 +2,7 @@
 set -eu
 
 cd $(dirname $0)
-source ./common.sh
+source ./common.bash
 
 # List dotfiles
 function list_dotfiles() {

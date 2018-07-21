@@ -18,7 +18,7 @@ function install_deploy() {
     cd $DOTPATH
 
     echo -e "\033[33mStart deployments...\033[0;39m"
-    DOTPATH=$DOTPATH bash ./etc/scripts/deploy.sh
+    DOTPATH=$DOTPATH bash ./etc/scripts/deploy.bash
     echo -e "\033[33mfinish.\033[0;39m"
 }
 
@@ -26,7 +26,7 @@ function install_initialize() {
     cd $DOTPATH
 
     echo -e "\033[33mStart initializations...\033[0;39m"
-    DOTPATH=$DOTPATH bash ./etc/scripts/initialize.sh
+    DOTPATH=$DOTPATH bash ./etc/scripts/initialize.bash
     echo -e "\033[33mfinish.\033[0;39m"
 }
 

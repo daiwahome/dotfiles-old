@@ -32,7 +32,7 @@ export_env
 set_permission
 
 # Constant
-os_list=(ubuntu)
+os_list=(ubuntu macos)
 home="$DOTPATH/home"
 config='.config'
 scripts="$DOTPATH/etc/scripts"
@@ -93,6 +93,15 @@ function is_ubuntu() {
     return 1
 }
 
+# Return 0 if OS is MacOS
+function is_macos() {
+    if [[ $(uname) == Darwin ]]; then
+        return 0
+    fi
+
+    return 1
+}
+
 # Get OS name
 function get_os() {
     local os
@@ -112,7 +121,7 @@ function get_os() {
 function log() {
     local name="$(basename $1)"
     local callback="${@:2}"
-    local log_path="$log_dir/${name%.sh}.log"
+    local log_path="$log_dir/${name%.bash}.log"
 
     echo '#--------------------' >> $log_path
     #echo "$callback" >> $log_path
