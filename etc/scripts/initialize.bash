@@ -2,7 +2,7 @@
 set -eu
 
 cd $(dirname $0)
-source ./common.sh
+source ./common.bash
 
 # Create XDG BASE Directories
 function create_xdg_base_directories() {
@@ -25,7 +25,7 @@ function initialize() {
         export DEBIAN_FRONTEND=noninteractive
     fi
 
-    for script in $scripts/$os/*.sh; do
+    for script in $scripts/$os/*.bash; do
         bash $script
     done
 }
